@@ -76,10 +76,6 @@ var req = (function(){
         meta.status = 'working';
         meta.loader.apply(null, meta.params.concat([function (err, data) {
             meta.tries++;
-            if (err) {
-                meta.status = "err";
-                return console.log("error while loading %s", r_name);
-            }
 
             meta.status = 'ready';
             meta.data = data;

@@ -42,7 +42,6 @@
     <!-- Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Anonymous+Pro"/>
-    <link rel="stylesheet" href="css/leaflet.css"/>
     <link rel="stylesheet" href="css/application.css">
 
     <style> 	
@@ -61,6 +60,16 @@
 
 </head>
 <body>
+
+<div id="map3" class="hidden2">
+    <div class="close">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 32.2402L32 2.24023" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 2.24023L32 32.2402" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+</div>
+<div class="mapBackground hidden2"></div>
 
 <div class="main-content">
     <div class="roww he-1">
@@ -405,7 +414,7 @@
 </div>
 
 <div id="finalmap-container">
-    <div id="finalmap"></div>
+    <div id="map2"></div>
     <div id="coordinates" class="hidden"></div>
 </div>
 
@@ -422,19 +431,20 @@
 <div class="main-content">
     <div class="roww he-3">
         <div class="block credits wi-7 he-2 le-1 to-1">
+            <p class="read-more" style="font-style: italic; padding-bottom: 25px;">Due to technical changes in the service providing satellite imagery, the project was minimally updated in February 2025</p>
             <div class="block credits-job" style="text-align: right">
                 <p>Programming and special effects</p>
                 <p>Design and programming</p>
                 <p>Modeling</p>
                 <p>Developing</p>
-                <p class="bottom-margin">Text </p>
+                <p class="bottom-margin"><br>Text</p>
                 <p class="small-caps"><a href="http://texty.org.ua">texty.org.ua</a></p>
             </div>
             <div class="block credits-name">
                 <p>Vlad HERASYMENKO</p>
                 <p>Nadia KELM</p>
                 <p>Anatoliy BONDARENKO</p>
-                <p>Yevheniia DROZDOVA</p>
+                <p>Yevheniia DROZDOVA<br>Nikita HOLOVINSKYI</p>
                 <p class="bottom-margin">Yaroslava TYMOSHCHUK</p>
                 <p class="small-caps">iv · xxv · mmxviii</p>
             </div>
@@ -452,9 +462,7 @@
     <!--</div>-->
 <!--</div>-->
 
-<script src="lib/leaflet.js"></script>
 <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise"></script>
-<script src="lib/leaflet-bing-layer.min.js"></script>
 <script src="lib/jquery-2.1.4.min.js"></script>
 <script src="lib/d3.v4.min.js"></script>
 
@@ -462,11 +470,17 @@
 <script src="js/req.js"></script>
 <script src="js/figure.js"></script>
 <script src="js/map.js"></script>
-<script src="js/finalmap.js"></script>
 <script src="js/main.js"></script>
 <script src="js/click_me.js"></script>
 <script src="js/share-behavior.js"></script>
 
+<!--MapLibre-->
+<link rel='stylesheet' href='https://unpkg.com/maplibre-gl@5.0.1/dist/maplibre-gl.css' />
+<script src='https://unpkg.com/maplibre-gl@5.0.1/dist/maplibre-gl.js'></script>
+<script src="https://unpkg.com/pmtiles@4.1.0/dist/pmtiles.js"></script>
+<script src="https://unpkg.com/@turf/turf"></script>
+<link rel="stylesheet" href="css/maplibre.css"/>
+<script src="js/maplibre.js"></script>
 
 <script>
     var _gaq = _gaq || [];

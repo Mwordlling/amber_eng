@@ -1,115 +1,52 @@
 function figure() {
+    let gridString, image, img_center, grid, imageOffsetPc = {x: 0, y: 0},
+        figureSize = { x: 3, y: 3 }, designBlockSize = 128, tileDesignSize = 500, storage = {};
 
-    var gridString // "101 000 111"
-        , image
-        , img_center
-        , grid
-        // , dx = 0.00543
-        // , dy = 0.0033342
-        , imageOffsetPc = {x: 0, y: 0}
-        // , blocksize_pc = 0.11111111
-        , figureSize = {
-            x: 3,
-            y: 3
-        }
-
-        , designBlockSize = 128
-        , tileOriginalSize = 1000
-        , tileDesignSize = 500
-        
-        , storage = {_onClick: function() {console.log("empty stub")}}
-    ;
-    
     function my(selection) {
         selection.each(function() {
-            
-            var backgroundSize_pc = tileDesignSize / (designBlockSize * figureSize.x);
-            console.log(inpercents(backgroundSize_pc));
-            
-            var container = d3.select(this);
+            const backgroundSize_pc = tileDesignSize / (designBlockSize * figureSize.x);
+            const container = d3.select(this);
 
-            container
-                // .style("width", inpercents(blocksize_pc * figureSize.x))
-                // .style("height", inpercents(blocksize_pc * figureSize.y))
-
-                .append("div")
+            container.append("div")
                 .attr("class", "grid-wrapper")
-                .style("background-image", "url('" + image + "')")
-                .style("background-position", inpercents(imageOffsetPc.x) + " " + inpercents(imageOffsetPc.y))
+                .style("background-image", `url('${image}')`)
+                .style("background-position", `${inpercents(imageOffsetPc.x)} ${inpercents(imageOffsetPc.y)}`)
                 .style("background-size", inpercents(backgroundSize_pc))
-
                 .selectAll("div.elementary-block")
                 .data(grid)
                 .enter()
                 .append("div")
                 .attr("class", "elementary-block")
-                .classed("opaque", function(d) {return d})
-                .classed("transparent", function(d) {return !d})
-                .style("width", inpercents(1/figureSize.x))
-                .style("padding-bottom", inpercents(1/figureSize.x))
-                .attr("title", "Click to view on map");
+                .classed("opaque", d => d)
+                .classed("transparent", d => !d)
+                .style("width", inpercents(1 / figureSize.x))
+                .style("padding-bottom", inpercents(1 / figureSize.x))
+                .attr("title", "Клікніть щоб дивитись карту");
 
-            container
-                .selectAll(".elementary-block.transparent")
-                .on("click", function() {storage._onClick()});
-            
-            my.getBackgroundSize_pc = function() {
-                return backgroundSize_pc;
-            };
+            container.selectAll(".elementary-block.transparent")
+                .on("click", () => storage._onClick());
+
+            my.getBackgroundSize_pc = () => backgroundSize_pc;
         });
     }
 
-    my.image = function (value) {
-        if (!arguments.length) return image;
-        setImage(value);
-        return my
-    };
+    my.image = value => value === undefined ? image : (setImage(value), my);
+    my.imageOffsetPc = value => value === undefined ? imageOffsetPc : (imageOffsetPc = value, my);
+    my.gridString = value => value === undefined ? gridString : (setGridString(value), my);
+    my.figureSize = value => value === undefined ? figureSize : (figureSize = value, my);
+    my.onClick = value => value === undefined ? storage._onClick : (storage._onClick = value, my);
 
     function setImage(value) {
         image = value;
-        img_center = image.replace(/^.*[\\\/]/, '').split("_").slice(0, 2).map(toNumber);
-        return my;
+        img_center = image.split(/[/\\]/).pop().split("_").slice(0, 2).map(Number);
     }
 
-    my.imageOffsetPc = function (value) {
-        if (!arguments.length) return imageOffsetPc;
-        imageOffsetPc = value;
-        return my
-    };
-
-    my.gridString = function (value) {
-        if (!arguments.length) return gridString;
-        setGridString(value);
-        return my;
-    };
-    
     function setGridString(value) {
         gridString = value;
-        grid = gridString.replace(/\s/g, "").split("").slice(0, figureSize.x * figureSize.y).map(toNumber);
+        grid = gridString.replace(/\s/g, "").split("").slice(0, figureSize.x * figureSize.y).map(Number);
     }
 
-    my.figureSize = function (value) {
-        if (!arguments.length) return figureSize;
-        figureSize = value;
-        return my;
-    };
-
-    my.onClick = function (value) {
-        if (!arguments.length) return storage._onClick;
-        storage._onClick = value;
-        return my;
-    };
-
-    function toNumber(v) {return +v}
-
-    function inpx(value) {
-        return "" + value + "px";
-    }
-
-    function inpercents(value) {
-        return "" + value * 100 + "%";
-    }
+    const inpercents = value => `${value * 100}%`;
 
     return my;
 }
-
