@@ -1,13 +1,13 @@
-#map2{
-    height: 90vh;
-}
-#map3{
+#map1{
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
     z-index: 99;
+}
+#map2{
+    height: 90vh;
 }
 .hidden2{
     opacity: 0;
