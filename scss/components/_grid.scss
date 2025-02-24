@@ -1,0 +1,314 @@
+@import "../base/variables";
+
+$cell-fixed: 128px;
+$cell-fluid: 100vw/11;
+$cell-mobile: 100vw/9.4;
+
+
+// Width and height
+@mixin height_fixed($size) {
+  .he-#{$size} {
+    height: $cell-fixed * $size;
+  }
+}
+
+@mixin width_fixed($size) {
+  .wi-#{$size} {
+    width: $cell-fixed * $size;
+  }
+}
+
+@mixin height_fluid($size) {
+  .he-#{$size} {
+    height: $cell-fluid * $size;
+  }
+}
+
+@mixin width_fluid($size) {
+  .wi-#{$size} {
+    width: $cell-fluid * $size;
+  }
+}
+
+@mixin height_mobile($size) {
+  .he-#{$size} {
+    height: $cell-mobile * $size;
+  }
+}
+
+@mixin width_mobile($size) {
+  .wi-#{$size} {
+    width: $cell-mobile * $size;
+  }
+}
+//////////////////////
+
+// Left position
+@mixin left_fluid($size) {
+  .le-#{$size} {
+    left: $cell-fluid * $size;
+  }
+}
+
+@mixin left_fixed($size) {
+  .le-#{$size} {
+    left: $cell-fixed * $size;
+  }
+}
+
+@mixin left_mobile($size) {
+  .le-#{$size} {
+    left: $cell-mobile * $size;
+  }
+}
+
+// Top position
+@mixin top_fluid($size) {
+  .to-#{$size} {
+    top: $cell-fluid * $size;
+  }
+}
+
+@mixin top_fixed($size) {
+  .to-#{$size} {
+    top: $cell-fixed * $size;
+  }
+}
+
+@mixin top_mobile($size) {
+  .to-#{$size} {
+    top: $cell-mobile * $size;
+  }
+}
+
+// Margin-Top position
+@mixin margin_top_fixed($size) {
+  .ma-to-#{$size} {
+    margin-top: $cell-fixed * $size;
+  }
+}
+
+@mixin margin_top_fluid($size) {
+  .ma-to-#{$size} {
+    margin-top: $cell-fluid * $size;
+  }
+}
+
+@mixin margin_top_mobile($size) {
+  .ma-to-#{$size} {
+    margin-top: $cell-mobile * $size;
+  }
+}
+
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+
+
+@media #{$brk-fixed} {
+  @include height_fixed(1);
+  @include height_fixed(2);
+  @include height_fixed(3);
+  @include height_fixed(4);
+  @include height_fixed(5);
+  @include height_fixed(6);
+  @include height_fixed(7);
+  @include height_fixed(8);
+  @include height_fixed(9);
+  @include height_fixed(10);
+  @include height_fixed(11);
+
+  @include width_fixed(1);
+  @include width_fixed(2);
+  @include width_fixed(3);
+  @include width_fixed(4);
+  @include width_fixed(5);
+  @include width_fixed(6);
+  @include width_fixed(7);
+  @include width_fixed(8);
+  @include width_fixed(9);
+  @include width_fixed(10);
+  @include width_fixed(11);
+
+  @include left_fixed(1);
+  @include left_fixed(2);
+  @include left_fixed(3);
+  @include left_fixed(4);
+  @include left_fixed(5);
+  @include left_fixed(6);
+  @include left_fixed(7);
+  @include left_fixed(8);
+  @include left_fixed(9);
+  @include left_fixed(10);
+  @include left_fixed(11);
+
+  @include top_fixed(1);
+  @include top_fixed(2);
+  @include top_fixed(3);
+  @include top_fixed(4);
+  @include top_fixed(5);
+  @include top_fixed(6);
+  @include top_fixed(7);
+  @include top_fixed(8);
+  @include top_fixed(9);
+  @include top_fixed(10);
+  @include top_fixed(11);
+
+  @include margin_top_fixed(1);
+  @include margin_top_fixed(2);
+  @include margin_top_fixed(3);
+  @include margin_top_fixed(4);
+  @include margin_top_fixed(5);
+  @include margin_top_fixed(6);
+  @include margin_top_fixed(7);
+  @include margin_top_fixed(8);
+  @include margin_top_fixed(9);
+  @include margin_top_fixed(10);
+  @include margin_top_fixed(11);
+}
+
+@media #{$brk-fluid} {
+  @include height_fluid(1);
+  @include height_fluid(2);
+  @include height_fluid(3);
+  @include height_fluid(4);
+  @include height_fluid(5);
+  @include height_fluid(6);
+  @include height_fluid(7);
+  @include height_fluid(8);
+  @include height_fluid(9);
+  @include height_fluid(10);
+  @include height_fluid(11);
+
+  @include width_fluid(1);
+  @include width_fluid(2);
+  @include width_fluid(3);
+  @include width_fluid(4);
+  @include width_fluid(5);
+  @include width_fluid(6);
+  @include width_fluid(7);
+  @include width_fluid(8);
+  @include width_fluid(9);
+  @include width_fluid(10);
+  @include width_fluid(11);
+
+  @include left_fluid(1);
+  @include left_fluid(2);
+  @include left_fluid(3);
+  @include left_fluid(4);
+  @include left_fluid(5);
+  @include left_fluid(6);
+  @include left_fluid(7);
+  @include left_fluid(8);
+  @include left_fluid(9);
+  @include left_fluid(10);
+  @include left_fluid(11);
+
+  @include top_fluid(1);
+  @include top_fluid(2);
+  @include top_fluid(3);
+  @include top_fluid(4);
+  @include top_fluid(5);
+  @include top_fluid(6);
+  @include top_fluid(7);
+  @include top_fluid(8);
+  @include top_fluid(9);
+  @include top_fluid(10);
+  @include top_fluid(11);
+
+  @include margin_top_fluid(1);
+  @include margin_top_fluid(2);
+  @include margin_top_fluid(3);
+  @include margin_top_fluid(4);
+  @include margin_top_fluid(5);
+  @include margin_top_fluid(6);
+  @include margin_top_fluid(7);
+  @include margin_top_fluid(8);
+  @include margin_top_fluid(9);
+  @include margin_top_fluid(10);
+  @include margin_top_fluid(11);
+}
+
+@media #{$brk-mobile} {
+  @include height_mobile(1);
+  @include height_mobile(2);
+  @include height_mobile(3);
+  @include height_mobile(4);
+  @include height_mobile(5);
+  @include height_mobile(6);
+  @include height_mobile(7);
+  @include height_mobile(8);
+  @include height_mobile(9);
+  @include height_mobile(10);
+  @include height_mobile(11);
+  @include height_mobile(12);
+
+  @include width_mobile(1);
+  @include width_mobile(2);
+  @include width_mobile(3);
+  @include width_mobile(4);
+  @include width_mobile(5);
+  @include width_mobile(6);
+  @include width_mobile(7);
+  @include width_mobile(8);
+  @include width_mobile(9);
+  @include width_mobile(10);
+  @include width_mobile(11);
+
+  @include left_mobile(1);
+  @include left_mobile(2);
+  @include left_mobile(3);
+  @include left_mobile(4);
+  @include left_mobile(5);
+  @include left_mobile(6);
+  @include left_mobile(7);
+  @include left_mobile(8);
+  @include left_mobile(9);
+  @include left_mobile(10);
+  @include left_mobile(11);
+
+  @include top_mobile(1);
+  @include top_mobile(2);
+  @include top_mobile(3);
+  @include top_mobile(4);
+  @include top_mobile(5);
+  @include top_mobile(6);
+  @include top_mobile(7);
+  @include top_mobile(8);
+  @include top_mobile(9);
+  @include top_mobile(10);
+  @include top_mobile(11);
+
+  @include margin_top_mobile(1);
+  @include margin_top_mobile(2);
+  @include margin_top_mobile(3);
+  @include margin_top_mobile(4);
+  @include margin_top_mobile(5);
+  @include margin_top_mobile(6);
+  @include margin_top_mobile(7);
+  @include margin_top_mobile(8);
+  @include margin_top_mobile(9);
+  @include margin_top_mobile(10);
+  @include margin_top_mobile(11);
+}
+
+
+.roww {
+  width: 100%;
+  display:block;
+  position: relative;
+}
+
+.block {
+  display: block;
+  position: absolute;
+
+
+  //todo TEMP REMOVE
+  @media #{$brk-mobile} {
+    //border:1px solid yellow;
+  }
+}
+
+

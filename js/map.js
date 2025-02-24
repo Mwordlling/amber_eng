@@ -6,7 +6,7 @@ async function loadMap() {
     }
  
     mapIntance = new maplibregl.Map({
-        container: 'map1',
+        container: 'map3',
         minZoom: 8,
         maxZoom: 18.5,
         maxBounds: [
@@ -206,7 +206,7 @@ function map() {
                 });
                 //
                 // Закриття мапи
-                const mapDiv = document.querySelector('#map1');
+                const mapDiv = document.querySelector('#map3');
                 const mapBack = document.querySelector('.mapBackground');
                 const closeButton = document.querySelector('.close');
 
